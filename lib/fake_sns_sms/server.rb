@@ -14,7 +14,12 @@ module FakeSnsSms
       end
       if FakeSnsSms::is_valid_sms?(params)
         status 200
-        'Published'
+        '<PublishResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+        <PublishResult>
+        <MessageId>FAKE</MessageId>
+        </PublishResult> <ResponseMetadata>
+        <RequestId>FAKE</RequestId>
+        </ResponseMetadata> </PublishResponse> '
       else
         status 400
         'Bad request'
