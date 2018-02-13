@@ -14,8 +14,6 @@ module FakeSnsSms
 
   def self.valid_phone_number?(pn)
     phone_number = Phonelib.parse(pn)
-    p phone_number.full_e164
-    p pn
     return false unless phone_number.full_e164 == pn
     return true
   end
