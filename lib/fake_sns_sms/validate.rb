@@ -2,12 +2,10 @@ require 'phonelib'
 
 module FakeSnsSms
   def self.is_valid_sms?(params)
-    return false unless self.has_required_params(params)
-    return false unless self.valid_phone_number?(params[:PhoneNumber])
-    return true
+    self.has_required_params?(params) && self.valid_phone_number?(params[:PhoneNumber])
   end
 
-  def self.has_required_params(params)
+  def self.has_required_params?(params)
     return false unless params[:PhoneNumber] && params[:MessageStructure] && params[:Message]
     return true
   end
