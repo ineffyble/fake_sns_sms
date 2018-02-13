@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path("../../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'fake_sns_sms'
+
+options = {
+  :port      => 9292,
+  :bind      => "0.0.0.0",
+  :verbose   => false,
+  :environment => :production
+}
+
+FakeSnsSms::Server.run!(options)
